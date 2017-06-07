@@ -61,7 +61,7 @@ var todoList = {
 };
 
 
-var displayTodosBtn = document.getElementById("display-btn");
+/*var displayTodosBtn = document.getElementById("display-btn");
 
 displayTodosBtn.addEventListener("click", function() {
     todoList.displayTodos();
@@ -72,3 +72,15 @@ var toggleAllBtn = document.getElementById("toggleAll-btn");
 toggleAllBtn.addEventListener("click", function() {
     todoList.toggleAll();
 });
+*/
+
+//Create a new object to use with the onclick for the buttons
+
+var handlers = {
+    displayTodos: function() {
+        todoList.displayTodos();
+    },
+    toggleAll: function() {
+        todoList.toggleAll();
+    }
+};
