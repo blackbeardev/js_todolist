@@ -98,7 +98,18 @@ var view = {
             
             todoLi.textContent = todoTextWithCompetion;
             
+            //Append the delete button to the li
+            todoLi.appendChild(this.createDeleteBtn());
+            
             todosUl.appendChild(todoLi);    //Append the li to the ul element
         }
+    },
+    createDeleteBtn: function() {
+        var deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Delete";
+        
+        //Add a classname to the button
+        deleteBtn.className = "deleteBtn";
+        return deleteBtn;
     }
 }
