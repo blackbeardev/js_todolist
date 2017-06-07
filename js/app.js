@@ -93,3 +93,30 @@ var handlers = {
         toggleTodoPositionInput.value = "";
     }
 };
+
+//Create a new object for viewing the todos.
+var view = {
+    displayTodos: function() {
+        var todosUl = document.querySelector("ul");
+        //Clear the unordered list before the new li elements are added.
+        todosUl.innerHTML = "";
+        
+        for(var i = 0; i < todoList.todos.length; i++) {
+
+            var todoLi = document.createElement("li");
+            var todo = todoList.todos[i];
+            
+            var todoTextWithCompetion = "";
+            
+            if(todo.completed === true) {
+                todoTextWithCompetion = "(x) " + todo.todoText;
+            } else {
+                todoTextWithCompetion = "( ) " + todo.todoText;
+            }
+            
+            todoLi.textContent = todoTextWithCompetion;
+            
+            todosUl.appendChild(todoLi);    //Append the li to the ul element
+        }
+    }
+}
