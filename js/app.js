@@ -59,3 +59,10 @@ var todoList = {
         this.displayTodos();
     }
 };
+
+
+var displayTodosBtn = document.getElementById("display-btn");
+
+displayTodosBtn.addEventListener("click", function() {
+    todoList.displayTodos();
+});
