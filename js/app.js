@@ -63,10 +63,9 @@ var handlers = {
         changeTodoTextInput.value = "";
         view.displayTodos();
     },
-    deleteTodo: function() {
-        var deleteTodoPositionInput = document.getElementById("deleteTodoPositionInput");
-        todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
-        deleteTodoPositionInput.value = "";
+    deleteTodo: function(position) {
+        // var deleteTodoPositionInput = document.getElementById("deleteTodoPositionInput");   //No longer need it once delete button is created on each li
+        todoList.deleteTodo(position);
         view.displayTodos();
     },
     toggleCompleted: function() {
@@ -96,6 +95,9 @@ var view = {
                 todoTextWithCompetion = "( ) " + todoList.todos[i].todoText;
             }
             
+            //Set the id attribute of each item to be the index of the item in the array.
+            todoLi.id = i;
+            
             todoLi.textContent = todoTextWithCompetion;
             
             //Append the delete button to the li
@@ -111,5 +113,29 @@ var view = {
         //Add a classname to the button
         deleteBtn.className = "deleteBtn";
         return deleteBtn;
+    },
+    setUpEventListeners: function() {
+        //Get a reference to the UL - use the target method on the event listener to determine what item in the UL has been clicked.
+        var todosUl = document.querySelector("ul");
+
+        todosUl.addEventListener("click", function(event) {
+        // console.log(event.target.parentNode.id);   //Access the id attribute which sits in the parentNode of the button (ie, the li element), then access the id value.
+    
+        //Get the element that was clicked on
+        var elementClicked = event.target;
+    
+            //Check if elementClicked is a delete button
+            if(elementClicked.className === "deleteBtn") {
+                //Run handlers.deleteTodo - using the id of the li element
+                handlers.deleteTodo(Number(elementClicked.parentNode.id));
+                
+            }
+            
+            
+        });
     }
-}
+};
+
+//Call the function that will create the delete buttons.
+view.setUpEventListeners();
+
