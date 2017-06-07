@@ -8,13 +8,17 @@
         
         <h1>Todo List</h1>
         
-        <!--<button id="display-btn">Display todos</button>-->
-        <!--<button id="toggleAll-btn">Toggle All</button>-->
+        <div>
+           <button onclick="handlers.displayTodos()">Display todos</button>
+           <button onclick="handlers.toggleAll()">Toggle All</button>
+        </div>
         
-        <!--Refactor code to use onclick instead of adding an id to the button-->
         
-        <button onclick="handlers.displayTodos()">Display todos</button>
-        <button onclick="handlers.toggleAll()">Toggle All</button>
+        <div>
+            <button onclick="handlers.addTodo()">Add a todo</button>
+            <input type="text" name="" id="addTodoTextInput" placeholder="New todo" />
+        </div>
+        
         
         
         <script type="text/javascript" src="js/app.js"></script>

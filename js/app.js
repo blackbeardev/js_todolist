@@ -61,19 +61,6 @@ var todoList = {
 };
 
 
-/*var displayTodosBtn = document.getElementById("display-btn");
-
-displayTodosBtn.addEventListener("click", function() {
-    todoList.displayTodos();
-});
-
-var toggleAllBtn = document.getElementById("toggleAll-btn");
-
-toggleAllBtn.addEventListener("click", function() {
-    todoList.toggleAll();
-});
-*/
-
 //Create a new object to use with the onclick for the buttons
 
 var handlers = {
@@ -82,5 +69,10 @@ var handlers = {
     },
     toggleAll: function() {
         todoList.toggleAll();
+    },
+    addTodo: function() {
+        var addTodoTextInput = document.getElementById("addTodoTextInput");
+        todoList.addTodo(addTodoTextInput.value);
+        addTodoTextInput.value = "";
     }
 };
