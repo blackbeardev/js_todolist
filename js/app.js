@@ -130,8 +130,6 @@ var view = {
                 handlers.deleteTodo(Number(elementClicked.parentNode.id));
                 
             }
-            
-            
         });
     }
 };
